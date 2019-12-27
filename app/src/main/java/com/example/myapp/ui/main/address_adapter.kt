@@ -11,7 +11,7 @@ import android.widget.TextView
 import com.example.myapp.MainActivity
 import com.example.myapp.R
 
-class AddressAdapter (val context: Context?, val datas: List<MainActivity.Companion.PhoneBook>) : BaseAdapter() {
+class AddressAdapter (val context: Context?, val data: List<MainActivity.Companion.PhoneBook>) : BaseAdapter() {
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         val view: View = LayoutInflater.from(context).inflate(R.layout.address_item, null)
@@ -20,7 +20,7 @@ class AddressAdapter (val context: Context?, val datas: List<MainActivity.Compan
         val name = view.findViewById<TextView>(R.id.name)
         val tel = view.findViewById<TextView>(R.id.tel)
 
-        val tels = datas[position]
+        val tels = data[position]
 
 //        id.text = tels.getId()
         name.text = tels.getName()
@@ -30,7 +30,7 @@ class AddressAdapter (val context: Context?, val datas: List<MainActivity.Compan
     }
 
     override fun getItem(position: Int): Any {
-        return datas[position]
+        return data[position]
     }
 
     override fun getItemId(position: Int): Long {
@@ -38,7 +38,7 @@ class AddressAdapter (val context: Context?, val datas: List<MainActivity.Compan
     }
 
     override fun getCount(): Int {
-        return datas.size
+        return data.size
     }
 
 }

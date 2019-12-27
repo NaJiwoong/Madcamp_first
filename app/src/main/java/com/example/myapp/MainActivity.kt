@@ -129,7 +129,7 @@ class MainActivity : AppCompatActivity() {
 
         @JvmStatic
         fun getContacts(context: Context?): List<PhoneBook>{
-            val datas = ArrayList<PhoneBook>()
+            val data = ArrayList<PhoneBook>()
             val resolver = context?.contentResolver
 
             val phoneUri = ContactsContract.CommonDataKinds.Phone.CONTENT_URI
@@ -154,11 +154,11 @@ class MainActivity : AppCompatActivity() {
                         setId(id); setName(name); setTel(number)
                     }
 
-                    datas.add(phoneBook)
+                    data.add(phoneBook)
                 }
             }
             cursor?.close()
-            return datas
+            return data
         }
     }
 
