@@ -1,6 +1,11 @@
 package com.example.myapp
 
+import android.Manifest
+import android.annotation.TargetApi
 import android.content.Context
+import android.content.DialogInterface
+import android.content.Intent
+import android.content.pm.PackageManager
 import android.database.Cursor
 import android.os.Bundle
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -15,16 +20,66 @@ import androidx.core.app.ComponentActivity
 import androidx.core.app.ComponentActivity.ExtraData
 import androidx.core.content.ContextCompat.getSystemService
 import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+import android.os.Build
 import android.provider.ContactsContract
+import android.provider.Settings
+import androidx.appcompat.app.AlertDialog
 import java.util.ArrayList
 
 
 
 class MainActivity : AppCompatActivity() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
+
+    override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+            checkVerify()
+        }else{
+            startApp()
+        }
+        //startApp()
+    }
+
+    @TargetApi(Build.VERSION_CODES.M)
+    fun checkVerify(){
+        if ( checkSelfPermission(Manifest.permission.READ_CONTACTS) != PackageManager.PERMISSION_GRANTED){
+            if (shouldShowRequestPermissionRationale(Manifest.permission.READ_CONTACTS)){
+                //
+            }
+            requestPermissions(arrayOf(Manifest.permission.READ_CONTACTS), 1)
+        }else{
+            startApp()
+        }
+        return
+    }
+
+    override fun onRequestPermissionsResult (requestCode: Int,  permissions: Array<String>, grantResults: IntArray){
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == 1){
+            if (grantResults.size > 0){
+                for (i in 1..(grantResults.size-1)){
+                    if (grantResults[i] == PackageManager.PERMISSION_DENIED){
+                        AlertDialog.Builder(this).setTitle("알림").setMessage("권한이 필요합니다")
+                            .setPositiveButton("종료") {dialog: DialogInterface, which ->
+                                    dialog.dismiss()
+                                    finish()
+                            }.setCancelable(false).show()
+
+                        return
+                    }
+                }
+
+                startApp()
+            }
+        }
+    }
+
+
+
+    private fun startApp() {
         val sectionsPagerAdapter = SectionsPagerAdapter(this, supportFragmentManager)
         val viewPager: ViewPager = findViewById(R.id.view_pager)
         viewPager.adapter = sectionsPagerAdapter
