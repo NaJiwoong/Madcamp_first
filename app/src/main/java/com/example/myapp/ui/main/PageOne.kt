@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProviders
+import com.example.myapp.MainActivity
 import com.example.myapp.R
 
 // TODO: Rename parameter arguments, choose names that match
@@ -28,6 +29,9 @@ class PageOne : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val phoneBooks: List<MainActivity.Companion.PhoneBook> = MainActivity.getContacts(context)
+
+
 
     }
 
