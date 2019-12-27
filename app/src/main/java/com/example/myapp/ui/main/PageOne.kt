@@ -7,9 +7,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ListView
 import androidx.lifecycle.ViewModelProviders
 import com.example.myapp.MainActivity
 import com.example.myapp.R
+import kotlinx.android.synthetic.main.fragment_page_one.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -29,10 +31,10 @@ class PageOne : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val phoneBooks: List<MainActivity.Companion.PhoneBook> = MainActivity.getContacts(context)
+//        val phoneBooks: List<MainActivity.Companion.PhoneBook> = MainActivity.getContacts(context)
 
-
-
+//        val telAdapter = AddressAdapter(this.context, phoneBooks)
+//        listview.adapter = telAdapter
     }
 
     override fun onCreateView(
@@ -40,7 +42,13 @@ class PageOne : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_page_one, container, false)
+        val myView: View = inflater.inflate(R.layout.fragment_page_one, container, false)
+        val list = myView.findViewById<ListView>(R.id.listview)
+        val phoneBooks: List<MainActivity.Companion.PhoneBook> = MainActivity.getContacts(context)
+        val telAdapter = AddressAdapter(getActivity(), phoneBooks)
+        list.adapter = telAdapter
+
+        return myView
     }
 
 

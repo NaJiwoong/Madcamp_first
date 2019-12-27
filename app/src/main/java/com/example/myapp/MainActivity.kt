@@ -114,6 +114,17 @@ class MainActivity : AppCompatActivity() {
             fun setTel(num: String?){
                 this.tel = num
             }
+
+            fun getId(): String?{
+                return this.id
+            }
+            fun getName(): String?{
+                return this.name
+            }
+            fun getTel(): String?{
+                return this.tel
+            }
+
         }
 
         @JvmStatic
