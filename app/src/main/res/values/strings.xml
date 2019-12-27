@@ -3,4 +3,9 @@
     <string name="tab_text_1">Address</string>
     <string name="tab_text_2">Gallery</string>
     <string name="tab_text_3">Free</string>
+
+    <string name="frag1">This tab is for address</string>
+    <string name="frag2">This tab is for Gallery</string>
+    <string name="frag3">This tab is for Free design</string>
+
 </resources>
