@@ -21,7 +21,10 @@ import androidx.core.app.ComponentActivity.ExtraData
 import androidx.core.content.ContextCompat.getSystemService
 import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 import android.os.Build
+import android.os.Parcel
+import android.os.Parcelable
 import android.provider.ContactsContract
+import android.provider.MediaStore
 import android.provider.Settings
 import androidx.appcompat.app.AlertDialog
 import java.util.ArrayList
@@ -49,7 +52,7 @@ class MainActivity : AppCompatActivity() {
                 //
             }
             requestPermissions(arrayOf(Manifest.permission.READ_CONTACTS, Manifest.permission.READ_EXTERNAL_STORAGE,
-                                        Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA), 1)
+                                        Manifest.permission.WRITE_EXTERNAL_STORAGE), 1)
         }else{
             startApp()
         }
@@ -124,8 +127,90 @@ class MainActivity : AppCompatActivity() {
             fun getTel(): String?{
                 return this.tel
             }
+        }
+
+        class Album{
+            private var folder: String? = null
+            private var filepath: String? = null
+            private var imgCount: Int? = null
+
+            fun setFolder(folder: String?){
+                this.folder = folder
+            }
+            fun setPath(path: String?){
+                this.filepath = path
+            }
+            fun setCount(imgCount: Int?){
+                this.imgCount = imgCount
+            }
+            fun getFolder(): String?{
+                return this.folder
+            }
+            fun getPath(): String?{
+                return this.filepath
+            }
+            fun getCount(): Int?{
+                return this.imgCount
+            }
 
         }
+
+        @JvmStatic
+        fun getAlbums(context: Context?): List<Album>{
+            val photos = ArrayList<Album>()
+            val resolver = context?.contentResolver
+
+            val column_index_data: Int
+            val column_index_folder_name: Int
+
+            val BUCKET_GROUP_BY = "1) GROUP BY 1,(2"
+            val BUCKET_ORDER_BY = "MAX(datataken) DESC"
+
+            val uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
+            var cursor: Cursor?
+            var cursorBucket: Cursor?
+
+            val images = ArrayList<String>()
+
+            var absolutePath: String?
+
+            val projection = arrayOf(MediaStore.Images.ImageColumns.BUCKET_ID,
+                                    MediaStore.Images.ImageColumns.BUCKET_DISPLAY_NAME,
+                                    MediaStore.Images.ImageColumns.DATE_TAKEN,
+                                    MediaStore.Images.ImageColumns.DATA)
+
+            cursor = resolver?.query(uri, projection, null, null, null)
+
+            if (cursor != null){
+                column_index_data = cursor.getColumnIndexOrThrow(MediaStore.MediaColumns.DATA)
+                column_index_folder_name = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.BUCKET_DISPLAY_NAME)
+
+                while (cursor.moveToNext()){
+                    absolutePath = cursor.getString(column_index_data)
+
+                    val selectionArgs = arrayOf("%" + cursor.getString(column_index_folder_name) + "%")
+                    val selection = MediaStore.Images.Media.DATA + " like ? "
+                    val projectionOnlyBucket = arrayOf(MediaStore.MediaColumns.DATA, MediaStore.Video.Media.BUCKET_DISPLAY_NAME)
+
+                    cursorBucket = resolver?.query(uri, projectionOnlyBucket, selection, selectionArgs, null)
+
+                    if (absolutePath != "" && absolutePath != null){
+                        val album = Album().apply{
+                            setFolder(cursor.getString(column_index_folder_name)); setPath(absolutePath); setCount(cursorBucket?.count)
+                        }
+                        photos.add(album)
+                    }
+                }
+
+            }
+            return photos
+
+        }
+
+
+
+
+
 
         @JvmStatic
         fun getContacts(context: Context?): List<PhoneBook>{

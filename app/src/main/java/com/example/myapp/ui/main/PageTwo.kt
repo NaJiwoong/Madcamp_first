@@ -7,7 +7,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.BaseAdapter
+import android.widget.GridView
 import androidx.lifecycle.ViewModelProviders
+import com.example.myapp.MainActivity
 import com.example.myapp.R
 
 // TODO: Rename parameter arguments, choose names that match
@@ -36,13 +39,15 @@ class PageTwo : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_page_two, container, false)
+        val myView: View = inflater.inflate(R.layout.fragment_page_two, container, false)
+        val albums: List<MainActivity.Companion.Album> = MainActivity.getAlbums(context)
+        val grid = myView.findViewById<GridView>(R.id.gridview)
+
+        val photoAdapter = AlbumAdapter(getActivity(), albums)
+        grid.adapter = photoAdapter
+
+        return myView
     }
-
-
-
-
-
 
 
     /**
