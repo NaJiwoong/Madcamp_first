@@ -17,11 +17,13 @@
 
     <TextView
         android:id="@+id/name"
-        android:layout_width="200dp"
+        android:layout_width="wrap_content"
         android:layout_height="30dp"
         android:gravity="center_vertical"
+        android:layout_marginLeft="12dp"
         android:layout_marginTop="15dp"
-        android:textSize="25sp"
+        android:textSize="35sp"
+        app:fontFamily="@font/misaeng"
         tools:text="name"/>
 
     <TextView
@@ -30,8 +32,9 @@
         android:layout_height="30dp"
         android:gravity="center_vertical|right"
         android:layout_marginTop="15dp"
-        android:layout_marginRight="20dp"
-        android:textSize="20sp"
+        android:layout_marginRight="25dp"
+        android:textSize="30sp"
+        app:fontFamily="@font/misaeng"
         tools:text="tel"/>
 
 
