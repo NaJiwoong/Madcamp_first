@@ -5,10 +5,33 @@
     android:layout_height="match_parent"
     tools:context=".ui.main.PageTwo">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <Button
+        android:id="@+id/takepicbtn"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/frag2" />
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:padding="5dp"
+        android:text="@string/take_picture" />
+
+    <TextView
+        android:id="@+id/imgpath"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="@string/temp"/>
+
+    <Gallery
+        android:id="@+id/customgallery"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"></Gallery>
+
+    <ImageView
+        android:id="@+id/resultview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_below="@id/customgallery" />
 
 </FrameLayout>

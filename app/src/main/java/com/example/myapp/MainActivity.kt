@@ -49,7 +49,8 @@ class MainActivity : AppCompatActivity() {
             if (shouldShowRequestPermissionRationale(Manifest.permission.READ_CONTACTS)){
                 //
             }
-            requestPermissions(arrayOf(Manifest.permission.READ_CONTACTS), 1)
+            requestPermissions(arrayOf(Manifest.permission.READ_CONTACTS, Manifest.permission.READ_EXTERNAL_STORAGE,
+                                        Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA), 1)
         }else{
             startApp()
         }
