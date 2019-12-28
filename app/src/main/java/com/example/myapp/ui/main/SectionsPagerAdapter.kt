@@ -9,8 +9,8 @@ import com.example.myapp.R
 
 private val TAB_TITLES = arrayOf(
     R.string.tab_text_1,
-    R.string.tab_text_2,
-    R.string.tab_text_3
+    R.string.tab_text_3,
+    R.string.tab_text_2
 )
 
 /**
@@ -26,8 +26,8 @@ class SectionsPagerAdapter(private val context: Context, fm: FragmentManager) :
         //return PlaceholderFragment.newInstance(position + 1)
         when (position) {
             0 -> return PageOne.newInstance()//PlaceholderFragment.newInstance(position+1)
-            1 -> return PageTwo.newInstance()
-            2 -> return PageThree.newInstance()
+            1 -> return PageThree.newInstance()
+            2 -> return PageTwo.newInstance()
             else -> return PageOne.newInstance()//PlaceholderFragment.newInstance(position+1)
         }
 

@@ -1,5 +1,6 @@
 package com.example.myapp.ui.main
 
+import android.content.ClipData
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
@@ -15,20 +16,42 @@ import com.example.myapp.R
 import java.io.File
 
 
+class ViewHolder{
+    var imagev: ImageView? = null
+}
+
 class AlbumAdapter (val context: Context?, val data: List<MainActivity.Companion.Album>): BaseAdapter() {
 
-    override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
-        val view: View = LayoutInflater.from(context).inflate(R.layout.pictures, null)
+    override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View? {
+        var switch:Int = 0
+        val holder: ViewHolder
+        if (convertView == null) {
+            val view: View = LayoutInflater.from(context).inflate(R.layout.pictures, null)
 
-        val pic =  view.findViewById<ImageView>(R.id.imageView1)
+            holder = ViewHolder()
 
+            holder.imagev = view.findViewById<ImageView>(R.id.imageView1)
+
+            view.setTag(holder)
+
+            val myPic = data[position]
+            val imgFile = File(myPic.getPath())
+            val bitmap: Bitmap = BitmapFactory.decodeFile(imgFile.absolutePath)
+
+            holder.imagev?.setImageBitmap(bitmap)
+
+            return view
+
+        }else{
+            holder = convertView.getTag() as ViewHolder
+        }
         val myPic = data[position]
         val imgFile = File(myPic.getPath())
         val bitmap: Bitmap = BitmapFactory.decodeFile(imgFile.absolutePath)
 
-        pic?.setImageBitmap(bitmap)
+        holder.imagev?.setImageBitmap(bitmap)
 
-        return view
+        return convertView
     }
 
     override fun getItem(position: Int): Any {
@@ -41,6 +64,14 @@ class AlbumAdapter (val context: Context?, val data: List<MainActivity.Companion
 
     override fun getCount(): Int {
         return data.size
+    }
+
+
+    companion object{
+
+        class ViewHolder{
+            var imagev: ImageView? = null
+        }
     }
 
 
