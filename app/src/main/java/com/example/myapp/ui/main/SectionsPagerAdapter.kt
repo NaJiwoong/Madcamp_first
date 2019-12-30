@@ -10,8 +10,8 @@ import com.example.myapp.R
 
 private val TAB_TITLES = arrayOf(
     R.string.tab_text_1,
-    R.string.tab_text_3,
-    R.string.tab_text_2
+    R.string.tab_text_2,
+    R.string.tab_text_3
 )
 
 /**
@@ -28,8 +28,8 @@ class SectionsPagerAdapter(private val context: Context, fm: FragmentManager) :
         val myAlbum = MainActivity.getAlbums(context)
         when (position) {
             0 -> return PageOne.newInstance()//PlaceholderFragment.newInstance(position+1)
-            1 -> return PageThree.newInstance()
-            2 -> return PageTwo.newInstance()
+            1 -> return PageTwo.newInstance()
+            2 -> return PageThree.newInstance()
             else -> return PageOne.newInstance()//PlaceholderFragment.newInstance(position+1)
         }
 
