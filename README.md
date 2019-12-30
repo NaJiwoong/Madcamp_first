@@ -16,11 +16,10 @@ agree to permit read contacts.
   
     
 #### Tab2
-&nbsp;&nbsp;&nbsp;&nbsp;This tab is for free ideation tab. 
+&nbsp;&nbsp;&nbsp;&nbsp;This tab is for Gallery. We implemented it as getting all photos in local gallery and show them as gridview. In the implementation, we used Glide library. To get permission, we implemented a pop-up which requires the user to agree to permit read and wirte external local storage. 
   
   
 #### Tab3
-&nbsp;&nbsp;&nbsp;&nbsp;This tab is for Gallery. We implemented it as getting all photos in local gallery and show them as gridview. In the implementation, we used Glide library. To get permission, we implemented a pop-up which requires the user to agree to permit read and wirte external local storage. 
-  
 
+&nbsp;&nbsp;&nbsp;&nbsp;This tab is for free ideation tab. 
 
