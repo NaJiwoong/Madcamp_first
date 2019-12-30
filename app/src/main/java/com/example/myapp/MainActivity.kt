@@ -134,24 +134,24 @@ class MainActivity : AppCompatActivity() {
             private var filepath: String? = null
             private var imgCount: Int? = null
 
-            fun setFolder(folder: String?){
-                this.folder = folder
-            }
+//            fun setFolder(folder: String?){
+//                this.folder = folder
+//            }
             fun setPath(path: String?){
                 this.filepath = path
             }
-            fun setCount(imgCount: Int?){
-                this.imgCount = imgCount
-            }
-            fun getFolder(): String?{
-                return this.folder
-            }
+//            fun setCount(imgCount: Int?){
+//                this.imgCount = imgCount
+//            }
+//            fun getFolder(): String?{
+//                return this.folder
+//            }
             fun getPath(): String?{
                 return this.filepath
             }
-            fun getCount(): Int?{
-                return this.imgCount
-            }
+//            fun getCount(): Int?{
+//                return this.imgCount
+//            }
 
         }
 
@@ -187,16 +187,16 @@ class MainActivity : AppCompatActivity() {
 
                 while (cursor.moveToNext()){
                     absolutePath = cursor.getString(column_index_data)
-
-                    val selectionArgs = arrayOf("%" + cursor.getString(column_index_folder_name) + "%")
-                    val selection = MediaStore.Images.Media.DATA + " like ? "
-                    val projectionOnlyBucket = arrayOf(MediaStore.MediaColumns.DATA, MediaStore.Video.Media.BUCKET_DISPLAY_NAME)
-
-                    cursorBucket = resolver?.query(uri, projectionOnlyBucket, selection, selectionArgs, null)
+//
+//                    val selectionArgs = arrayOf("%" + cursor.getString(column_index_folder_name) + "%")
+//                    val selection = MediaStore.Images.Media.DATA + " like ? "
+//                    val projectionOnlyBucket = arrayOf(MediaStore.MediaColumns.DATA, MediaStore.Video.Media.BUCKET_DISPLAY_NAME)
+//
+//                    cursorBucket = resolver?.query(uri, projectionOnlyBucket, selection, selectionArgs, null)
 
                     if (absolutePath != "" && absolutePath != null){
                         val album = Album().apply{
-                            setFolder(cursor.getString(column_index_folder_name)); setPath(absolutePath); setCount(cursorBucket?.count)
+                            setPath(absolutePath);
                         }
                         photos.add(album)
                     }
@@ -206,10 +206,6 @@ class MainActivity : AppCompatActivity() {
             return photos
 
         }
-
-
-
-
 
 
         @JvmStatic
