@@ -2,7 +2,7 @@
     <string name="app_name">MyApp</string>
     <string name="tab_text_1">Address</string>
     <string name="tab_text_2">Gallery</string>
-    <string name="tab_text_3">Free</string>
+    <string name="tab_text_3">ToDo</string>
 
     <string name="frag1">This tab is for address</string>
     <string name="frag2">This tab is for Gallery</string>
@@ -12,4 +12,6 @@
 
     <string name="back">Back to Gallery</string>
     <string name="temp">Temporary Text</string>
+
+    <string name="input">Enter your text</string>
 </resources>

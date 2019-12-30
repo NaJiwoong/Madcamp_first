@@ -3,12 +3,17 @@ package com.example.myapp.ui.main
 import android.content.Context
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
+import android.widget.ListView
 import androidx.lifecycle.ViewModelProviders
 import com.example.myapp.R
+import java.io.File
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -36,7 +41,39 @@ class PageThree : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_page_three, container, false)
+        val view: View = inflater.inflate(R.layout.fragment_page_three, container, false)
+        val saveBtn: Button = view.findViewById(R.id.saveBtn)
+        var edittext: EditText = view.findViewById(R.id.edittext)
+        var myList: ListView = view.findViewById(R.id.todolist)
+        val filePath = context?.getFilesDir()?.getPath().toString() + "/ToDoList.txt"
+        var file = File(filePath)
+        file.createNewFile()
+        var todoList: List<String> = load(filePath)
+        var todoAdapter = TodoList(getActivity(), filePath)
+
+        saveBtn.setOnClickListener{v->
+            var writeText = edittext.text.toString()
+            if (writeText != "" && writeText != null){
+                save(writeText, filePath)
+                todoList = load(filePath)
+            }
+            myList.adapter = todoAdapter
+        }
+        myList.adapter = todoAdapter
+
+        return view
+    }
+
+    fun save(text: String, filePath: String){
+        var writeText = text + "\n"
+        var fileOut = File(filePath)
+        val curStr: ArrayList<String> = fileOut.readLines() as ArrayList<String>
+        var writeStr = ""
+        for (str in curStr){
+            writeStr += str + "\n"
+        }
+        writeStr += writeText
+        fileOut.writeText(writeStr)
     }
 
 
@@ -66,6 +103,14 @@ class PageThree : Fragment() {
          * @return A new instance of fragment PageOne.
          */
         // TODO: Rename and change types and number of parameters
+
+        fun load(filePath: String): ArrayList<String>{
+            var fileIn = File(filePath)
+            var result = fileIn.readLines() as ArrayList<String>
+            return result
+        }
+
+
 
         @JvmStatic
         fun newInstance(): PageThree {

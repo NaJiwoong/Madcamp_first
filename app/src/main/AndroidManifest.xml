@@ -6,6 +6,8 @@
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -14,7 +16,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".img_pop"></activity>
+        <activity android:name=".ui.main.TodoList"></activity>
+        <activity android:name=".img_pop" />
         <activity android:name=".ui.main.albumAdapter" />
         <activity android:name=".ui.main.photo_grid" />
         <activity android:name=".ui.main.CustomGalleryAdapter" />

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:minHeight="60dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/id"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_gravity="left"-->
+    <!--        android:textSize="20sp"-->
+    <!--        android:textStyle="bold"-->
+    <!--        tools:text="id"/>-->
+
+    <TextView
+        android:id="@+id/number"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="15dp"
+        android:textSize="35sp"
+        app:fontFamily="@font/misaeng"
+        tools:text="name"/>
+
+    <TextView
+        android:id="@+id/todo"
+        android:layout_width="300dp"
+        android:layout_height="30dp"
+        android:gravity="center_vertical|left"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="5dp"
+        android:textSize="30sp"
+        app:fontFamily="@font/misaeng"
+        tools:text="tel"/>
+
+    <Button
+        android:id="@+id/remove"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:text="Remove"
+        android:textSize="20sp"
+        app:fontFamily="@font/misaeng"
+        android:layout_marginRight="5dp"
+        android:gravity="center_vertical|right"/>
+
+
+</LinearLayout>

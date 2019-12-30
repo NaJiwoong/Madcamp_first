@@ -1,17 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.main.PageThree">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:fontFamily="@font/misaeng"
-        android:textSize="20sp"
-        android:text="@string/frag3" />
+<!--    <TextView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:fontFamily="@font/misaeng"-->
+<!--        android:textSize="20sp"-->
+<!--        android:text="@string/frag3" />-->
 
-</FrameLayout>
+    <ListView
+        android:id="@+id/todolist"
+        android:layout_width="match_parent"
+        android:layout_height="430dp" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:hint="Input your text"
+            android:id="@+id/edittext"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_gravity="center_horizontal"
+            android:ems="10"
+            android:inputType="textPersonName"
+            app:fontFamily="@font/misaeng"
+            android:textSize="30sp"
+            />
+
+        <Button
+            android:id="@+id/saveBtn"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            app:fontFamily="@font/misaeng"
+            android:textSize="20sp"
+            android:background="#B0C3F3"
+            android:textColor="#FFFFFF"
+            android:text="Enter"/>
+
+    </LinearLayout>
+
+</LinearLayout>
