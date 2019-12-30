@@ -14,7 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.main.albumAdapter"></activity>
+        <activity android:name=".img_pop"></activity>
+        <activity android:name=".ui.main.albumAdapter" />
         <activity android:name=".ui.main.photo_grid" />
         <activity android:name=".ui.main.CustomGalleryAdapter" />
         <activity android:name=".ui.main.address_adapter" />

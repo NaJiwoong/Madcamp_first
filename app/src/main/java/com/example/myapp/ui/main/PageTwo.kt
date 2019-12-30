@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.BaseAdapter
 import android.widget.GridView
 import androidx.lifecycle.ViewModelProviders
@@ -45,6 +46,11 @@ class PageTwo : Fragment() {
 
         val photoAdapter = AlbumAdapter(getActivity(), albums)
         grid.adapter = photoAdapter
+
+        grid.setOnItemClickListener(AdapterView.OnItemClickListener{parent, v, position, id ->
+            photoAdapter.callImageViewer(position)
+        })
+
 
         return myView
     }

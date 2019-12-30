@@ -10,5 +10,6 @@
 
     <string name="take_picture">Take Picture</string>
 
+    <string name="back">Back to Gallery</string>
     <string name="temp">Temporary Text</string>
 </resources>

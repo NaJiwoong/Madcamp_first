@@ -21,7 +21,7 @@
             android:padding="@dimen/appbar_padding"
             android:text="@string/app_name"
             app:fontFamily="@font/misaeng"
-            android:textSize="35sp" />
+            android:textSize="38sp" />
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabs"
