@@ -1,4 +1,4 @@
-# Madcamp_first
+# Madcamp_first: My Todo
 2019 Fall KAIST  
 
 ## Environment
