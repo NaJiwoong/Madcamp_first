@@ -23,4 +23,9 @@ agree to permit read contacts.
   
 #### Tab3
 &nbsp;&nbsp;&nbsp;&nbsp;This tab is for ToDoList. We implemented it simply getting input text from Edittext and save the input into the textfile in the local storage. After store the data, we make it able to show a list of all input texts that it got. We made a remove button for each list element, so that users can remove any list element by simply cliking the remove button.
-
+  
+    
+    
+## Authors
+- Jiwoong Na
+- Junmyong Lee
