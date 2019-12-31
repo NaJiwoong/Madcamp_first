@@ -22,15 +22,12 @@ class SectionsPagerAdapter(private val context: Context, fm: FragmentManager) :
     FragmentPagerAdapter(fm) {
 
     override fun getItem(position: Int): Fragment {
-        // getItem is called to instantiate the fragment for the given page.
-        // Return a PlaceholderFragment (defined as a static inner class below).
-        //return PlaceholderFragment.newInstance(position + 1)
-        val myAlbum = MainActivity.getAlbums(context)
+
         when (position) {
-            0 -> return PageOne.newInstance()//PlaceholderFragment.newInstance(position+1)
+            0 -> return PageOne.newInstance()
             1 -> return PageTwo.newInstance()
             2 -> return PageThree.newInstance()
-            else -> return PageOne.newInstance()//PlaceholderFragment.newInstance(position+1)
+            else -> return PageOne.newInstance()
         }
 
     }

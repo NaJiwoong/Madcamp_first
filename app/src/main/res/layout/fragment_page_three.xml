@@ -9,13 +9,6 @@
     android:fitsSystemWindows="true"
     android:windowSoftInputMode="adjustResize">
 
-<!--    <TextView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        app:fontFamily="@font/misaeng"-->
-<!--        android:textSize="20sp"-->
-<!--        android:text="@string/frag3" />-->
-
     <ListView
         android:id="@+id/todolist"
         android:layout_width="match_parent"
