@@ -12,13 +12,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;This repository is for madcamp project of first week. In this project, we make an android application with three tabs. Each tab has its own content respectively: Address book, Photo gallery, Undecided content.  
 ##### Note
 - permission  
-&nbsp;&nbsp;&nbsp;&nbsp;We need permission to access contacts on the phone, and local storage in order to get contacts from the phone for the Tab1, and get photos from the phone album for the Tab2, and also we have to store 'Todo list' in the local storage as txt file. So we put code below in the 'manifest/AndroidManifest.xml'  
-  
-><uses-permission android:name="android.permission.READ_CONTACTS"/>
-><uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-><uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-  
-In addition, we have to request users permissions, so we implemented requesting function(checkVerify()) and overrided function 'onRequestPermissionResult'. After user agree all permission, the function calls a function 'startApp()', which will actually start the actual application.  
+&nbsp;&nbsp;&nbsp;&nbsp;We need permission to access contacts on the phone, and local storage in order to get contacts from the phone for the Tab1, and get photos from the phone album for the Tab2, and also we have to store 'Todo list' in the local storage as txt file. So we put code below in the 'manifest/AndroidManifest.xml'   \<uses-permission android:name="android.permission.READ_CONTACTS"/>\<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>\<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>In addition, we have to request users permissions, so we implemented requesting function(checkVerify()) and overrided function 'onRequestPermissionResult'. After user agree all permission, the function calls a function 'startApp()', which will actually start the actual application.  
 
   
 #### Tab1
