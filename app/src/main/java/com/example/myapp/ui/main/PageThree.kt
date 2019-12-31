@@ -50,7 +50,7 @@ class PageThree : Fragment() {
 
         edittext.setOnKeyListener { v, keyCode, event ->
             var writeText=edittext.text.toString()
-            if (event.action == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_ENTER){
+            if (event.action == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_ENTER && writeText != "" && writeText != null){
                 save(writeText, filePath)
                 todoList = load(filePath)
                 edittext.text.clear()
