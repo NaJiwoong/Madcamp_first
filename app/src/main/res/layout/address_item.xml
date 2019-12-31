@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="100dp"
-    android:minHeight="60dp"
+    android:layout_height="80dp"
+    android:minHeight="40dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
@@ -18,22 +18,22 @@
     <TextView
         android:id="@+id/name"
         android:layout_width="wrap_content"
-        android:layout_height="30dp"
+        android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:layout_marginLeft="12dp"
-        android:layout_marginTop="15dp"
-        android:textSize="35sp"
+        android:layout_marginTop="10dp"
+        android:textSize="30sp"
         app:fontFamily="@font/misaeng"
         tools:text="name"/>
 
     <TextView
         android:id="@+id/tel"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="wrap_content"
         android:gravity="center_vertical|right"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="25dp"
-        android:textSize="30sp"
+        android:textSize="25sp"
         app:fontFamily="@font/misaeng"
         tools:text="tel"/>
 
