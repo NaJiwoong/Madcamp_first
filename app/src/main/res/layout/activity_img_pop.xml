@@ -26,8 +26,8 @@
 
     <ImageView
         android:id="@+id/imagePop"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="400dp"
+        android:layout_height="450dp"
         android:layout_marginTop="10dp"
         android:gravity="center"
         android:layout_gravity="center"
@@ -39,8 +39,8 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:layout_marginTop="15dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="5dp"
         app:fontFamily="@font/misaeng"
         android:background="#B0C3F3"
         android:textColor="#FFFFFF"

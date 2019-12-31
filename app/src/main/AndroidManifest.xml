@@ -16,16 +16,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.main.TodoList"></activity>
         <activity android:name=".img_pop" />
         <activity android:name=".ui.main.albumAdapter" />
         <activity android:name=".ui.main.photo_grid" />
         <activity android:name=".ui.main.CustomGalleryAdapter" />
         <activity android:name=".ui.main.address_adapter" />
+        <activity android:name=".ui.main.PageThree" android:windowSoftInputMode="stateHidden|adjustResize"/>
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

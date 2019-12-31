@@ -57,6 +57,7 @@ class PageThree : Fragment() {
                 save(writeText, filePath)
                 todoList = load(filePath)
             }
+            edittext.text.clear()
             myList.adapter = todoAdapter
         }
         myList.adapter = todoAdapter

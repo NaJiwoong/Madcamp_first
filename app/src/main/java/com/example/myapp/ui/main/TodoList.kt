@@ -37,22 +37,22 @@ class TodoList (val context: Context?, var filePath: String): BaseAdapter() {
 
 
         btn.setOnClickListener{v->
-            getView(position, convertView, parent)
+            notifyDataSetChanged()
         }
 
         rem.setOnClickListener{v->
             todolist.removeAt(position)
             var resStr: String = ""
             for (str in todolist){
-                resStr = str + "\n"
+                resStr += str + "\n"
             }
             var fileOut = File(filePath)
             fileOut.writeText(resStr)
-            getView(position-1, convertView, parent)
+            notifyDataSetChanged()
         }
 
 
-        num.setText((position+1).toString())
+        num.setText((position+1).toString() + ". ")
         text.setText(showText)
 
         return view
