@@ -1,5 +1,5 @@
 # Madcamp_first: My Todo
-2019 Fall KAIST  
+2019 Winter KAIST  
 
 ## Environment
 - Android Studio 29.0.2
