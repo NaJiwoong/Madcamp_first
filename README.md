@@ -9,7 +9,7 @@
 - Glide 3.7.0
 
 ## Description  
-&nbsp;&nbsp;&nbsp;&nbsp;This repository is for madcamp project of first week. In this project, we make an android application with three tabs. Each tab has its own content respectively: Address book, Photo gallery, Undecided content.  
+&nbsp;&nbsp;&nbsp;&nbsp;This repository is for madcamp project of first week. In this project, we make an android application with three tabs. Each tab has its own content respectively: Address book, Photo gallery, TodoList.  
 
   
 #### Tab1
